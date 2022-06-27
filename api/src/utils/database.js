@@ -79,7 +79,7 @@ class DataBase {
 
             if (!countPlatformsDB) {
                 const platforms = this.platforms.map(e => {
-                    return {name: e};
+                    return { name: e };
                 });
 
                 await Platform.bulkCreate(platforms);
