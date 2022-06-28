@@ -1,0 +1,30 @@
+.container {
+    background-color: var(--color-white);
+    box-shadow: 0 1rem 1rem var(--color-light);
+    height: 4.6rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    margin-bottom: 1rem;
+}
+
+.div {
+    height: 4.6rem;
+    width: 100vw;
+    margin-bottom: 2.4rem;
+}
+
+.home_icon {
+    font-size: 4.5rem;
+    color: var(--color-primary);
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+}

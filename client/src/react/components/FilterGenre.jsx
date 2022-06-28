@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getGenres, setGenresFilter } from '../../redux/actions';
+import styles, { container, select, i_close } from './styles/Filter.module.css';
+import { FaTimes } from "react-icons/fa";
 
 const FilterGenres = () => {
 
@@ -21,9 +23,13 @@ const FilterGenres = () => {
 
     const currentGenres = useSelector(state => state.filters.genres);
 
+    function handleClick(event) {
+        dispatch(setGenresFilter('All'));
+    }
+
     return (
-        <div>
-            <select value={currentGenres} onChange={e => handleChange(e)}>
+        <div className={container}>
+            <select className={select} value={currentGenres} onChange={e => handleChange(e)}>
                 <option value={'All'}>All</option>
                 {
                     genres.map(e => (
@@ -31,6 +37,9 @@ const FilterGenres = () => {
                     ))
                 }
             </select>
+            {
+                currentGenres !== 'All' && <FaTimes className={i_close} onClick={e => handleClick(e)} />
+            }
         </div>
     );
 }

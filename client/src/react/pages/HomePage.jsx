@@ -4,8 +4,10 @@ import { useDispatch } from 'react-redux';
 import { filterAndSort, getVideogames } from '../../redux/actions';
 import FilterGenres from '../components/FilterGenre.jsx';
 import FilterStatus from '../components/FilterStatus.jsx';
+import NavBar from '../components/NavBar.jsx';
 import Order from '../components/Order.jsx';
 import SearchBar from '../components/SearchBar.jsx';
+import styles, {filters_container} from './styles/HomePage.module.css';
 
 const HomePage = () => {
 
@@ -28,12 +30,12 @@ const HomePage = () => {
     return (
         <div>
             <div>
-                HOMEPAGE
+                <NavBar />
             </div>
             <div>
                 <SearchBar />
             </div>
-            <div>
+            <div className={filters_container}>
                 <FilterGenres />
                 <FilterStatus />
                 <Order />

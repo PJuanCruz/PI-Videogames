@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getVideogames, setGenresFilter, setOrder, setStatusFilter } from '../../redux/actions';
+import styles, { container, input, i_search, i_close } from './styles/SearchBar.module.css';
+import { FaSearch, FaTimes } from "react-icons/fa";
 
 const SearchBar = () => {
 
@@ -24,14 +26,23 @@ const SearchBar = () => {
         }
     }, [search]);
 
+    function handleClick(event) {
+        setSearch('');
+    }
+
     return (
-        <div>
+        <div className={container}>
             <form>
-                <input
-                    type='text'
-                    value={search}
-                    onChange={e => handleChange(e)}
-                />
+                    <FaSearch className={i_search} />
+                    <input
+                        className={input}
+                        type='text'
+                        value={search}
+                        onChange={e => handleChange(e)}
+                    />
+                    {
+                        search !== '' && <FaTimes className={i_close} onClick={e => handleClick(e)}/>
+                    }
             </form>
         </div>
     );

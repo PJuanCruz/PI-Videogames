@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setOrder } from '../../redux/actions';
+import styles, { container, select } from './styles/Filter.module.css';
 
 const Order = () => {
 
@@ -13,8 +14,8 @@ const Order = () => {
     const currentOrder = useSelector(state => state.filters.order);
 
     return (
-        <div>
-            <select value={currentOrder} onChange={e => handleChange(e)}>
+        <div className={container}>
+            <select className={select} value={currentOrder} onChange={e => handleChange(e)}>
                 <option disabled value={'None'}>Sort by...</option>
                 <option value={'Random'}>Random</option>
                 <option value={'AZ'}>AZ</option>
