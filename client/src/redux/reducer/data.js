@@ -1,7 +1,10 @@
-import { GET_VIDEOGAMES } from '../actions';
+import { filterVideogames, sortVideogames } from '../../utils/filter';
+import { FILTER_AND_SORT, GET_VIDEOGAMES } from '../actions';
 
 const initialState = {
-    videogames: []
+    videogames: [],
+    showVideogames: [],
+    page: 1
 };
 
 function data(state = initialState, action) {
@@ -10,7 +13,15 @@ function data(state = initialState, action) {
         case GET_VIDEOGAMES:
             return {
                 ...state,
-                videogames: payload
+                videogames: payload,
+                showVideogames: payload
+            }
+        case FILTER_AND_SORT:
+            const videogames = filterVideogames([...state.videogames], payload.genres, payload.status)
+            sortVideogames(videogames, payload.order)
+            return {
+                ...state,
+                showVideogames: videogames
             }
         default:
             return {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getVideogames } from '../../redux/actions';
+import { getVideogames, setGenresFilter, setOrder, setStatusFilter } from '../../redux/actions';
 
 const SearchBar = () => {
 
@@ -9,6 +9,9 @@ const SearchBar = () => {
 
     function handleChange(event) {
         setSearch(event.target.value);
+        dispatch(setGenresFilter('All'));
+        dispatch(setStatusFilter('All'));
+        dispatch(setOrder('None'));
     }
 
     const dispatch = useDispatch();
