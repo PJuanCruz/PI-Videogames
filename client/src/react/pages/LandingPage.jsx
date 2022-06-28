@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { getVideogames } from '../../redux/actions';
 
 const LandingPage = () => {
+    
     const dispatch = useDispatch();
 
     useEffect(() => {

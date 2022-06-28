@@ -130,7 +130,7 @@ router.get('/', async (req, res, next) => {
 
             const videogamesAPI = await rawgAPI.getVideogamesByName(name);
 
-            res.json([...videogamesDB, ...videogamesAPI].slice(0, 15));
+            res.json([...(videogamesDB || []), ...videogamesAPI].slice(0, 15));
         } else {
             const videogamesAPI = await rawgAPI.get100Videogames();
 

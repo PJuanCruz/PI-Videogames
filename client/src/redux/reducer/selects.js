@@ -1,17 +1,18 @@
-import { GET_VIDEOGAMES } from '../actions';
+import { GET_GENRES } from "../actions";
 
 const initialState = {
-    videogames: []
+    genres: [],
+    platforms: []
 };
 
-function state(state = initialState, action) {
+function selects(state = initialState, action) {
     const { type, payload } = action;
     switch (type) {
-        case GET_VIDEOGAMES:
+        case GET_GENRES:
             return {
                 ...state,
-                videogames: payload
-            }
+                genres: payload
+            };
         default:
             return {
                 ...state
@@ -19,4 +20,4 @@ function state(state = initialState, action) {
     }
 }
 
-export default state;
+export default selects;
