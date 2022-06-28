@@ -58,7 +58,7 @@ class RawgAPI {
                 return {
                     id: e.id,
                     name: e.name,
-                    description: e.description_raw,
+                    // description: e.description_raw,
                     released: e.released,
                     rating: e.rating,
                     platforms: e.platforms.map(e => {
@@ -97,7 +97,7 @@ class RawgAPI {
                 return {
                     id: e.id,
                     name: e.name,
-                    description: e.description_raw,
+                    // description: e.description_raw,
                     released: e.released,
                     rating: e.rating,
                     platforms: e.platforms.map(e => {

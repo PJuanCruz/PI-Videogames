@@ -16,7 +16,6 @@ module.exports = (sequelize) => {
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull: false
         },
         released: {
             type: DataTypes.DATEONLY
