@@ -83,7 +83,7 @@ class RawgAPI {
                 [
                     axios.get(`${this.basepath}/games?page=1&page_size=40&key=${this.apikey}`),
                     axios.get(`${this.basepath}/games?page=2&page_size=40&key=${this.apikey}`),
-                    axios.get(`${this.basepath}/games?page=3&page_size=20&key=${this.apikey}`)
+                    axios.get(`${this.basepath}/games?page=5&page_size=20&key=${this.apikey}`)
                 ]
             );
 

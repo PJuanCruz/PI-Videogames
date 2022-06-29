@@ -6,8 +6,9 @@ export const SET_GENRES_FILTER = 'SET_GENRES_FILTER';
 export const SET_STATUS_FILTER = 'SET_STATUS_FILTER';
 export const SET_ORDER = 'SET_ORDER';
 export const FILTER_AND_SORT = 'FILTER_AND_SORT';
+export const SET_SEARCH_FILTER = 'SET_SEARCH_FILTER';
 
-export function getVideogames(name = '') {
+export function getVideogames(setLoading, name = '') {
     return async function(dispatch) {
         const videogames = (await axios.get(`http://localhost:3001/videogames?name=${name}`)).data;
         dispatch(
@@ -16,6 +17,7 @@ export function getVideogames(name = '') {
                 payload: videogames
             }
         );
+        setLoading && setLoading(false)
     }
 }
 
@@ -51,6 +53,13 @@ export function setOrder(order) {
         payload: order
     }
 }
+
+// export function setSearchFilter(search) {
+//     return {
+//         type: SET_SEARCH_FILTER,
+//         payload: search
+//     }
+// }
 
 export function filterAndSort(filters) {
     return {
