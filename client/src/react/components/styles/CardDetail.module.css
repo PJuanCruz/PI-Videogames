@@ -57,3 +57,33 @@
     width: 75%;
     margin-bottom: 2rem;
 }
+
+.genres {
+    font-size: 1.4rem;
+    color: var(--color-white);
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.list {
+    margin-bottom: 2rem;
+}
+
+.list > span {
+    margin: 0 0.8rem;
+}
+
+.i {
+    font-size: 1.3rem;
+    padding-top: 5px;
+    margin-right: 2px;
+    margin-top: 1px;
+}
+
+.list:last-child {
+    margin-bottom: 0;
+}
