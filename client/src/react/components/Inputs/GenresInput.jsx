@@ -8,11 +8,15 @@ import validate from '../../../form-validations/genres';
 
 const GenresInput = ({ state, setState }) => {
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getGenres());
-    }, []);
 
     const genres = useSelector(state => state.selects.genres);
+
+    useEffect(() => {
+        if (!genres.length) {
+            dispatch(getGenres());
+        }
+    }, []);
+
 
     function handleChange(event) {
         if (!state.value.includes(parseInt(event.target.value))) {
@@ -34,7 +38,8 @@ const GenresInput = ({ state, setState }) => {
         console.log(event.target.value)
         setState({...state, value: [...state.value.filter(e => e !== parseInt(event.target.value))]})
     }
-
+    
+    console.log(genres)
     return (
         <div className={form_group}>
             <label className={`${state.valid === false && label_invalid} ${state.valid && label_valid}`} htmlFor='genres-input'>Genres</label>
@@ -51,8 +56,8 @@ const GenresInput = ({ state, setState }) => {
             {
                 state.value.map(e => (
                     <button key={e} value={e} onClick={e => handleClick(e)}>{genres.find(el => el.id === e).name}</button>
-                ))
-            }
+                    ))
+                }
         </div>
     );
 };

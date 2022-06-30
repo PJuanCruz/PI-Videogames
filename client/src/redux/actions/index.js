@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES';
+export const GET_VIDEOGAMES_BY_ID = 'GET_VIDEOGAMES_BY_ID';
 export const GET_GENRES = 'GET_GENRES';
 export const GET_PLATFORMS = 'GET_PLATFORMS';
 export const SET_GENRES_FILTER = 'SET_GENRES_FILTER';
@@ -10,6 +11,7 @@ export const FILTER_AND_SORT = 'FILTER_AND_SORT';
 export const SET_SEARCH_FILTER = 'SET_SEARCH_FILTER';
 export const SET_PAGE = 'SET_PAGE';
 export const POST_VIDEOGAME = 'POST_VIDEOGAME';
+export const PUT_VIDEOGAME = 'PUT_VIDEOGAME';
 
 export function getVideogames(setLoading, name = '') {
     return async function(dispatch) {
@@ -21,6 +23,18 @@ export function getVideogames(setLoading, name = '') {
             }
         );
         setLoading && setLoading(false)
+    }
+}
+
+export function getVideogameById(id) {
+    return async function(dispatch) {
+        const videogame = (await axios.get(`http://localhost:3001/videogames/${id}`)).data;
+        dispatch(
+            {
+                type: GET_VIDEOGAMES_BY_ID,
+                payload: videogame
+            }
+        );
     }
 }
 
@@ -96,6 +110,17 @@ export function postVideogame(payload) {
         dispatch(
             {
                 type: POST_VIDEOGAME
+            }
+        );
+    }
+}
+
+export function putVideogame(id, videogame) {
+    return async function(dispatch) {
+        await axios.put(`http://localhost:3001/videogames/${id}`, videogame);
+        dispatch(
+            {
+                type: PUT_VIDEOGAME
             }
         );
     }

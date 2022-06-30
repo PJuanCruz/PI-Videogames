@@ -1,9 +1,10 @@
 import { filterVideogames, sortVideogames } from '../../utils/filter';
-import { FILTER_AND_SORT, GET_VIDEOGAMES, POST_VIDEOGAME, SET_PAGE } from '../actions';
+import { FILTER_AND_SORT, GET_VIDEOGAMES, GET_VIDEOGAMES_BY_ID, POST_VIDEOGAME, PUT_VIDEOGAME, SET_PAGE } from '../actions';
 
 const initialState = {
     videogames: [],
     showVideogames: [],
+    videogameDetail: {},
     page: 1
 };
 
@@ -29,6 +30,15 @@ function data(state = initialState, action) {
                 page: payload
             }
         case POST_VIDEOGAME:
+            return {
+                ...state
+            }
+        case GET_VIDEOGAMES_BY_ID:
+            return {
+                ...state,
+                videogameDetail: payload
+            }
+        case PUT_VIDEOGAME:
             return {
                 ...state
             }
