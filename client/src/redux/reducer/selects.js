@@ -1,4 +1,4 @@
-import { GET_GENRES } from "../actions";
+import { GET_GENRES, GET_PLATFORMS } from "../actions";
 
 const initialState = {
     genres: [],
@@ -13,6 +13,11 @@ function selects(state = initialState, action) {
                 ...state,
                 genres: payload
             };
+        case GET_PLATFORMS:
+            return {
+                ...state,
+                platforms: payload
+            }
         default:
             return {
                 ...state

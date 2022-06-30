@@ -1,0 +1,127 @@
+.container {
+    width: 100%;
+    margin: 3.125rem auto 3.125rem auto;
+    max-width: 720px;
+}
+
+.form {
+    background: var(--color-white);
+    padding: 2.5rem 1.5em;
+    border-radius: 0.25rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_group {
+    margin: 0 auto 1.25rem auto;
+    padding: 0.25rem;
+    position: relative;
+}
+
+.form_group label {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    height: 2.375rem;
+    padding: 0.375rem 0.75rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.input_textarea {
+    min-height: 120px;
+    width: 100%;
+    padding: 0.625rem;
+    border-radius: 0.25rem;
+    resize: vertical;
+}
+
+.input_textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+.input_select {
+    display: block;
+    width: 100%;
+    height: 2.375rem;
+    padding: 0.375rem 0.75rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input_select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.message_valid {
+    visibility: hidden;
+}
+
+.message_invalid {
+    visibility: visible;
+    color: var(--color-danger);
+}
+
+.input_invalid {
+    border-color: var(--color-danger);
+}
+
+.label_valid {
+    color: var(--color-success);
+}
+
+.input_textarea_invalid {
+    border-color: var(--color-danger);
+}
+
+.submit {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--color-success);
+    color: inherit;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.i {
+    opacity: 0;
+    color: var(--color-success);
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.i_valid {
+    opacity: 1;
+}
+
+.label_invalid {
+    color: var(--color-danger);
+}

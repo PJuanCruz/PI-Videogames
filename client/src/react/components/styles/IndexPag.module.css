@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+.btn {
+    color: var(--color-white);
+    font-weight: bolder;
+    background: var(--color-primary);
+    padding: 0.75rem;
+    margin: 0.15rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    border: 0.1rem solid var(--color-primary);
+}
+
+.btn:hover {
+    background: #8a94ee;
+}
+
+.active_btn {
+    background: #5e69c1;
+}

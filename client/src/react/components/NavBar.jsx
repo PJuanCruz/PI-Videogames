@@ -16,7 +16,9 @@ const NavBar = () => {
             </ul>
             <ul className={links}>
                 <li>
-                    Inicio
+                    <NavLink to='/create'>
+                        Crear
+                    </NavLink>
                 </li>
                 <li>
                     Crear

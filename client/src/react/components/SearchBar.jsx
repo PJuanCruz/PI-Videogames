@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getVideogames, setGenresFilter, setOrder, setStatusFilter } from '../../redux/actions';
+import { getVideogames, setGenresFilter, setOrder, setPage, setStatusFilter } from '../../redux/actions';
 import styles, { container, input, i_search, i_close } from './styles/SearchBar.module.css';
 import { FaSearch, FaTimes } from "react-icons/fa";
 
@@ -14,6 +14,7 @@ const SearchBar = ({setLoading}) => {
         dispatch(setGenresFilter('All'));
         dispatch(setStatusFilter('All'));
         dispatch(setOrder('None'));
+        dispatch(setPage(1));
     }
 
     const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const SearchBar = ({setLoading}) => {
         dispatch(setGenresFilter('All'));
         dispatch(setStatusFilter('All'));
         dispatch(setOrder('None'));
+        dispatch(setPage(1));
     }
 
     return (
