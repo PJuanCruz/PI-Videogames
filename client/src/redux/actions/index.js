@@ -26,7 +26,7 @@ export function getVideogames(setLoading, name = '') {
     }
 }
 
-export function getVideogameById(id) {
+export function getVideogameById(id, setLoading) {
     return async function(dispatch) {
         const videogame = (await axios.get(`http://localhost:3001/videogames/${id}`)).data;
         dispatch(
@@ -35,6 +35,7 @@ export function getVideogameById(id) {
                 payload: videogame
             }
         );
+        setLoading && setLoading(false)
     }
 }
 

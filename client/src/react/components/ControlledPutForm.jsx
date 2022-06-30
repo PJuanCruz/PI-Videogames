@@ -15,7 +15,6 @@ const ControlledPutForm = ({id}) => {
     const dispatch = useDispatch();
 
     const videogame = useSelector(state => state.data.videogameDetail);
-    console.log(videogame)
 
     const [name, setName] = useState({ value: '', valid: null, message: '' });
     const [description, setDescription] = useState({ value: '', valid: null, message: '' });
