@@ -26,7 +26,7 @@ const HomePage = () => {
             setLoading(true);
             dispatch(getVideogames(setLoading));
         }
-    }, [dispatch]);
+    }, [dispatch, videogames.length]);
 
     const filters = useSelector(state => state.filters);
 

@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getGenres } from '../../../redux/actions';
-import style, { form_group, input_select, message_valid, message_invalid, label_valid, label_invalid, i, i_valid } from '../styles/ControlledForm.module.css';
+import style, { form_group, input_select, message_valid, message_invalid, label_valid, label_invalid, i, i_valid, selected, i_delete } from '../styles/ControlledForm.module.css';
 import { FaCheckCircle } from "react-icons/fa";
-import validate from '../../../form-validations/genres';
+import {validate} from '../../../form-validations/genres';
+import { FaTimes } from "react-icons/fa";
 
 const GenresInput = ({ state, setState }) => {
     const dispatch = useDispatch();
@@ -39,7 +40,6 @@ const GenresInput = ({ state, setState }) => {
         setState({...state, value: [...state.value.filter(e => e !== parseInt(event.target.value))]})
     }
     
-    console.log(genres)
     return (
         <div className={form_group}>
             <label className={`${state.valid === false && label_invalid} ${state.valid && label_valid}`} htmlFor='genres-input'>Genres</label>
@@ -55,7 +55,7 @@ const GenresInput = ({ state, setState }) => {
             <h5 className={state.valid === false ? message_invalid : message_valid}>{state.message || 'message'}</h5>
             {
                 state.value.map(e => (
-                    <button key={e} value={e} onClick={e => handleClick(e)}>{genres.find(el => el.id === e).name}</button>
+                    <button className={selected} key={e} value={e} onClick={e => handleClick(e)}>{genres.find(el => el.id === e).name}</button>
                     ))
                 }
         </div>

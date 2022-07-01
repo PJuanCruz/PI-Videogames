@@ -24,7 +24,9 @@ const NavBar = () => {
                     Crear
                 </li>
                 <li>
-                    Salir
+                <NavLink to='/'>
+                        Salir
+                    </NavLink>
                 </li>
             </ul>
         </div>

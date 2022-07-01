@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import validate from '../../../form-validations/description';
+import {validate} from '../../../form-validations/description';
 import style, { form_group, message_valid, message_invalid, label_valid, input_textarea, input_textarea_invalid, label_invalid, i, i_valid } from '../styles/ControlledForm.module.css';
 import { FaCheckCircle } from "react-icons/fa";
 

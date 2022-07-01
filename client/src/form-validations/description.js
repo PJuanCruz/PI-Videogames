@@ -1,4 +1,4 @@
-export default function validate(state, setState) {
+export function validate(state, setState) {
     if (state.value.length > 120) {
         setState({ ...state, valid: false, message: 'El campo no puede tener más de 120 caracteres' });
     } else if (!state.value.length) {

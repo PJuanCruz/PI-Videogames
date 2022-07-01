@@ -8,11 +8,20 @@ import NameInput from './Inputs/NameInput';
 import PlatformsInput from './Inputs/PlatformsInput';
 import RatingInput from './Inputs/RatingInput';
 import ReleasedInput from './Inputs/ReleasedInput';
+import { validate as validateDescription } from '../../form-validations/description';
+import { validate as validateGenres } from '../../form-validations/genres';
+import { validate as validateName } from '../../form-validations/name';
+import { validate as validatePlatforms } from '../../form-validations/platforms';
+import { validate as validateRating } from '../../form-validations/rating';
+import { validate as validateReleased } from '../../form-validations/released';
 import styles, { container, form, submit } from './styles/ControlledForm.module.css'
+import { useHistory } from 'react-router-dom';
 
-const ControlledPutForm = ({id}) => {
+const ControlledPutForm = ({ id }) => {
 
     const dispatch = useDispatch();
+
+    const history = useHistory();
 
     const videogame = useSelector(state => state.data.videogameDetail);
 
@@ -32,10 +41,18 @@ const ControlledPutForm = ({id}) => {
                 released: released.value,
                 rating: rating.value,
                 genresId: genres.value,
-                platformsId: platforms.value 
+                platformsId: platforms.value
             };
             dispatch(putVideogame(id, updateVideogame));
-            alert('succes');
+            alert('Videojuego actualizado exitosamente');
+            history.push(`/videogames`)
+        } else {
+            validateName(name, setName);
+            validateDescription(description, setDescription)
+            validateReleased(released, setReleased)
+            validateRating(rating, setRating)
+            validateGenres(genres, setGenres)
+            validatePlatforms(platforms, setPlatforms)
         }
     }
 
@@ -47,7 +64,7 @@ const ControlledPutForm = ({id}) => {
         setGenres({ value: videogame.genres.map(e => e.id), valid: true, message: '' })
         setPlatforms({ value: videogame.platforms.map(e => e.id), valid: true, message: '' })
     }, [])
-    
+
     return (
         <div className={container}>
             <form className={form} onSubmit={e => handleSubmit(e)}>

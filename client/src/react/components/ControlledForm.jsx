@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import validate from '../../form-validations/name';
+import { useHistory } from 'react-router-dom';
+import { validate as validateDescription } from '../../form-validations/description';
+import { validate as validateGenres } from '../../form-validations/genres';
+import {validate as validateName} from '../../form-validations/name';
+import { validate as validatePlatforms } from '../../form-validations/platforms';
+import { validate as validateRating } from '../../form-validations/rating';
+import { validate as validateReleased } from '../../form-validations/released';
 import { postVideogame } from '../../redux/actions';
 import DescriptionInput from './Inputs/DescriptionInput';
 import GenresInput from './Inputs/GenresInput';
@@ -13,6 +19,8 @@ import styles, { container, form, submit } from './styles/ControlledForm.module.
 const ControlledForm = () => {
 
     const dispatch = useDispatch();
+
+    const history = useHistory();
 
     const [name, setName] = useState({ value: '', valid: null, message: '' });
     const [description, setDescription] = useState({ value: '', valid: null, message: '' });
@@ -33,7 +41,15 @@ const ControlledForm = () => {
                 platformsId: platforms.value 
             };
             dispatch(postVideogame(newVideogame));
-            alert('succes');
+            alert('Videojuego creado exitosamente');
+            history.push(`/videogames`)
+        } else {
+            validateName(name, setName);
+            validateDescription(description, setDescription)
+            validateReleased(released, setReleased)
+            validateRating(rating, setRating)
+            validateGenres(genres, setGenres)
+            validatePlatforms(platforms, setPlatforms)
         }
     }
     

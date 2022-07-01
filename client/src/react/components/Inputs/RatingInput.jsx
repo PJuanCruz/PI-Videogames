@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import style, { form_group, message_valid, message_invalid, label_valid, input_invalid, input, label_invalid, i, i_valid } from '../styles/ControlledForm.module.css';
 import { FaCheckCircle } from "react-icons/fa";
-import validate from '../../../form-validations/rating';
+import {validate} from '../../../form-validations/rating';
 
 const RatingInput = ({ state, setState }) => {
     function handleChange(event) {
@@ -34,6 +34,7 @@ const RatingInput = ({ state, setState }) => {
                 type='text'
                 id='rating-input'
                 placeholder='5.00'
+                autoComplete="off"
                 value={state.value}
                 onChange={e => handleChange(e)}
                 onBlur={e => validate(state, setState)}

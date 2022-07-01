@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import style, { form_group, message_valid, message_invalid, label_valid, input_invalid, input, label_invalid, i, i_valid } from '../styles/ControlledForm.module.css';
 import { FaCheckCircle } from "react-icons/fa";
-import validate from '../../../form-validations/released';
+import {validate} from '../../../form-validations/released';
 
 const ReleasedInput = ({ state, setState }) => {
     function handleChange(event) {
@@ -34,6 +34,7 @@ const ReleasedInput = ({ state, setState }) => {
                 type='text'
                 id='released-input'
                 placeholder='YYYY-MM-DD'
+                autoComplete="off"
                 value={state.value}
                 onChange={e => handleChange(e)}
                 onBlur={e => validate(state, setState)}

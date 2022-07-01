@@ -54,3 +54,10 @@
 .i_close:hover {
     color: var(--color-danger);
 }
+
+.search_text {
+    position: absolute;
+    right: 28px;
+    top: 8.5px;
+    color: #ced4da;
+}

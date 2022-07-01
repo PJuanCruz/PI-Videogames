@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import validate from '../../../form-validations/platforms';
+import {validate} from '../../../form-validations/platforms';
 import { getPlatforms } from '../../../redux/actions';
-import style, { form_group, input_select, message_valid, message_invalid, label_valid, i, i_valid, label_invalid } from '../styles/ControlledForm.module.css';
+import style, { form_group, input_select, message_valid, message_invalid, label_valid, i, i_valid, label_invalid, selected } from '../styles/ControlledForm.module.css';
 import { FaCheckCircle } from "react-icons/fa";
 
 const PlatformsInput = ({ state, setState }) => {
@@ -49,7 +49,7 @@ const PlatformsInput = ({ state, setState }) => {
             <h5 className={state.valid === false ? message_invalid : message_valid}>{state.message || 'message'}</h5>
             {
                 state.value.map(e => (
-                    <button key={e} value={e} onClick={e => handleClick(e)}>{platforms.find(el => el.id === e).name}</button>
+                    <button className={selected} key={e} value={e} onClick={e => handleClick(e)}>{platforms.find(el => el.id === e).name}</button>
                 ))
             }
         </div>

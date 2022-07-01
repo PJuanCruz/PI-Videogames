@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import validate from '../../../form-validations/name';
+import {validate} from '../../../form-validations/name';
 import style, { form_group, message_valid, message_invalid, label_valid, input_invalid, input, i, i_valid, label_invalid } from '../styles/ControlledForm.module.css';
 import { FaCheckCircle } from "react-icons/fa";
 
@@ -24,6 +24,7 @@ const NameInput = ({ state, setState }) => {
                 type='text'
                 id='name-input'
                 placeholder='Título...'
+                autoComplete="off"
                 value={state.value}
                 onChange={e => handleChange(e)}
                 onBlur={e => validate(state, setState)}

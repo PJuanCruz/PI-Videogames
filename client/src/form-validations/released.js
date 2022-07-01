@@ -1,4 +1,4 @@
-export default function validate(state, setState) {
+export function validate(state, setState) {
     if (!state.value.length) {
         setState({ ...state, valid: false, message: 'el campo no puede estar vacío' });
     } else if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(state.value)) {

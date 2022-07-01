@@ -1,9 +1,10 @@
-import { SET_GENRES_FILTER, SET_ORDER, SET_STATUS_FILTER } from "../actions";
+import { SET_GENRES_FILTER, SET_ORDER, SET_PAGE, SET_SEARCH, SET_STATUS_FILTER } from "../actions";
 
 const initialState = {
     genres: 'All',
     status: 'All',
-    order: 'None'
+    order: 'None',
+    search: ''
 };
 
 function filters(state = initialState, action) {
@@ -23,6 +24,14 @@ function filters(state = initialState, action) {
             return {
                 ...state,
                 order: payload
+            }
+        case SET_SEARCH:
+            return {
+                ...state,
+                genres: 'All',
+                status: 'All',
+                order: 'None',
+                search: payload
             }
         default:
             return {

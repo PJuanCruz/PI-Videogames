@@ -87,3 +87,12 @@
 .list:last-child {
     margin-bottom: 0;
 }
+
+.delete_update {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 75%;
+    margin-bottom: 2rem;
+}

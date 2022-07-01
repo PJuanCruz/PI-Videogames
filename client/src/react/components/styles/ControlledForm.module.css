@@ -125,3 +125,15 @@
 .label_invalid {
     color: var(--color-danger);
 }
+
+.selected {
+    border: none;
+    background-color: var(--color-white);
+    position: relative;
+    cursor: pointer;
+    margin-right: 1.5rem;
+}
+
+.selected:hover {
+    color: var(--color-danger);
+}

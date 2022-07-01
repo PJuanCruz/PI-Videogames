@@ -8,10 +8,11 @@ export const SET_GENRES_FILTER = 'SET_GENRES_FILTER';
 export const SET_STATUS_FILTER = 'SET_STATUS_FILTER';
 export const SET_ORDER = 'SET_ORDER';
 export const FILTER_AND_SORT = 'FILTER_AND_SORT';
-export const SET_SEARCH_FILTER = 'SET_SEARCH_FILTER';
+export const SET_SEARCH = 'SET_SEARCH';
 export const SET_PAGE = 'SET_PAGE';
 export const POST_VIDEOGAME = 'POST_VIDEOGAME';
 export const PUT_VIDEOGAME = 'PUT_VIDEOGAME';
+export const DELETE_VIDEOGAME = 'DELETE_VIDEOGAME';
 
 export function getVideogames(setLoading, name = '') {
     return async function(dispatch) {
@@ -84,12 +85,12 @@ export function setOrder(order) {
     }
 }
 
-// export function setSearchFilter(search) {
-//     return {
-//         type: SET_SEARCH_FILTER,
-//         payload: search
-//     }
-// }
+export function setSearch(search) {
+    return {
+        type: SET_SEARCH,
+        payload: search
+    }
+}
 
 export function filterAndSort(filters) {
     return {
@@ -122,6 +123,17 @@ export function putVideogame(id, videogame) {
         dispatch(
             {
                 type: PUT_VIDEOGAME
+            }
+        );
+    }
+}
+
+export function deleteVideogame(id) {
+    return async function(dispatch) {
+        await axios.delete(`http://localhost:3001/videogames/${id}`);
+        dispatch(
+            {
+                type: DELETE_VIDEOGAME
             }
         );
     }
