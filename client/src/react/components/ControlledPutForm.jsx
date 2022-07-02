@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { postVideogame, putVideogame } from '../../redux/actions';
+import { postVideogame, putVideogame, setSearch } from '../../redux/actions';
 import DescriptionInput from './Inputs/DescriptionInput';
 import GenresInput from './Inputs/GenresInput';
 import NameInput from './Inputs/NameInput';
@@ -44,6 +44,7 @@ const ControlledPutForm = ({ id }) => {
                 platformsId: platforms.value
             };
             dispatch(putVideogame(id, updateVideogame));
+            dispatch(setSearch(''))
             alert('Videojuego actualizado exitosamente');
             history.push(`/videogames`)
         } else {

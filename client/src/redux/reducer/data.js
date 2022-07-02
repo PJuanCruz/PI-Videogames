@@ -15,7 +15,8 @@ function data(state = initialState, action) {
             return {
                 ...state,
                 videogames: payload,
-                showVideogames: payload
+                showVideogames: payload,
+                page: 1
             }
         case FILTER_AND_SORT:
             const videogames = filterVideogames([...state.videogames], payload.genres, payload.status)

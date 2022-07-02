@@ -7,7 +7,7 @@ import {validate as validateName} from '../../form-validations/name';
 import { validate as validatePlatforms } from '../../form-validations/platforms';
 import { validate as validateRating } from '../../form-validations/rating';
 import { validate as validateReleased } from '../../form-validations/released';
-import { postVideogame } from '../../redux/actions';
+import { postVideogame, setSearch } from '../../redux/actions';
 import DescriptionInput from './Inputs/DescriptionInput';
 import GenresInput from './Inputs/GenresInput';
 import NameInput from './Inputs/NameInput';
@@ -41,6 +41,7 @@ const ControlledForm = () => {
                 platformsId: platforms.value 
             };
             dispatch(postVideogame(newVideogame));
+            dispatch(setSearch(''))
             alert('Videojuego creado exitosamente');
             history.push(`/videogames`)
         } else {

@@ -88,11 +88,29 @@
     margin-bottom: 0;
 }
 
-.delete_update {
+.button {
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 75%;
     margin-bottom: 2rem;
+}
+
+.del {
+    background-color: var(--color-danger);
+    border-radius: 0.25rem;
+    color: white;
+    border: 1px solid #ced4da;
+    padding: 0 3px;
+    cursor: pointer;
+}
+
+.up {
+    background-color: #41b6f1;
+    border-radius: 0.25rem;
+    color: white;
+    border: 1px solid #ced4da;
+    padding: 0 3px;
+    cursor: pointer;
 }

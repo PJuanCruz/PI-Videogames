@@ -1,4 +1,5 @@
 export function validate(state, setState) {
+    // console.log(typeof state.value)
     if (!/^[0-9]$|^[0-9]\.$|^[0-9]\.[0-9]{1,2}$|^[0-9]\.[0-9]{2}$/.test(state.value)) {
         setState({ ...state, valid: false, message: 'formato inválido: el rating debe estar expresado como 4.99' });
     } else if (parseFloat(state.value) > 5) {

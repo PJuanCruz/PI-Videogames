@@ -1,16 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import {validate} from '../../../form-validations/platforms';
+import { validate } from '../../../form-validations/platforms';
 import { getPlatforms } from '../../../redux/actions';
 import style, { form_group, input_select, message_valid, message_invalid, label_valid, i, i_valid, label_invalid, selected } from '../styles/ControlledForm.module.css';
 import { FaCheckCircle } from "react-icons/fa";
 
 const PlatformsInput = ({ state, setState }) => {
+
     const dispatch = useDispatch();
+    
     useEffect(() => {
         dispatch(getPlatforms());
     }, []);
+
     const platforms = useSelector(state => state.selects.platforms);
 
     function handleChange(event) {
@@ -31,7 +34,7 @@ const PlatformsInput = ({ state, setState }) => {
 
     function handleClick(event) {
         event.preventDefault();
-        setState({...state, value: [...state.value.filter(e => e !== parseInt(event.target.value))]})
+        setState({ ...state, value: [...state.value.filter(e => e !== parseInt(event.target.value))] })
     }
 
     return (

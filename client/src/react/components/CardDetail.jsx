@@ -1,10 +1,11 @@
 import React from 'react';
 import imgDefault from '../../img/descarga.png';
-import styles, { image, container, title, description, image_container, data, list, i, genres, delete_update } from './styles/CardDetail.module.css';
+import styles, { image, container, title, description, image_container, data, list, i, genres, button, del, up } from './styles/CardDetail.module.css';
 import { FaGamepad } from "react-icons/fa";
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { deleteVideogame } from '../../redux/actions';
+import { deleteVideogame, setSearch } from '../../redux/actions';
+import { MdDeleteForever, MdModeEditOutline } from "react-icons/md";
 
 const CardDetail = ({ videogame }) => {
 
@@ -14,6 +15,7 @@ const CardDetail = ({ videogame }) => {
 
     function handleClick(event) {
         dispatch(deleteVideogame(videogame.id));
+        dispatch(setSearch(''))
         alert('Videojuego eliminado exitosamente')
         history.push(`/videogames`)
     }
@@ -61,9 +63,9 @@ const CardDetail = ({ videogame }) => {
                 </div>
             </div>
             {
-                !videogame.createdAt ? null : <div className={delete_update}>
-                    <button onClick={e => handleClick(e)}>Eliminar</button>
-                    <Link to={`/update/${videogame.id}`}><button>Actualizar</button></Link>
+                !videogame.createdAt ? null : <div className={button}>
+                    <button className={del} onClick={e => handleClick(e)}>Eliminar <MdDeleteForever /></button>
+                    <Link to={`/update/${videogame.id}`}><button className={up}>Actualizar <MdModeEditOutline /></button></Link>
                 </div>
             }
         </>
