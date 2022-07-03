@@ -14,10 +14,17 @@ const CardDetail = ({ videogame }) => {
     const history = useHistory();
 
     function handleClick(event) {
-        dispatch(deleteVideogame(videogame.id));
-        dispatch(setSearch(''))
-        alert('Videojuego eliminado exitosamente')
-        history.push(`/videogames`)
+        // dispatch(deleteVideogame(videogame.id));
+        // dispatch(setSearch(''))
+        // alert('Videojuego eliminado exitosamente')
+        // history.push(`/videogames`)
+        let confirmDelete = window.confirm(`¿Seguro que desea eliminar ${videogame.name}?`);
+        if (confirmDelete) {
+            dispatch(deleteVideogame(videogame.id));
+            dispatch(setSearch(''))
+            alert('Videojuego eliminado exitosamente')
+            history.push(`/videogames`)
+        }
     }
 
     return (

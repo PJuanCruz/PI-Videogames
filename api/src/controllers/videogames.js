@@ -68,6 +68,20 @@ router.delete('/:id', async (req, res, next) => {
     }
 });
 
+router.get('/database', async (req, res, next) => {
+    try {
+        const videogames = (await Videogame.findAll(
+            {
+                attributes: ['name']
+            }
+        )).map(e => e.name);
+
+        res.json(videogames);
+    } catch (error) {
+        next(error);
+    }
+});
+
 router.get('/:id', async (req, res, next) => {
     const { id } = req.params;
     try {

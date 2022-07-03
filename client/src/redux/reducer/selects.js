@@ -2,7 +2,8 @@ import { GET_GENRES, GET_PLATFORMS } from "../actions";
 
 const initialState = {
     genres: [],
-    platforms: []
+    platforms: [],
+    // names: []
 };
 
 function selects(state = initialState, action) {

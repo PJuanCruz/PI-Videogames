@@ -138,3 +138,15 @@ export function deleteVideogame(id) {
         );
     }
 }
+
+// export function getVideogamesDBNames() {
+//     return async function (dispatch) {
+//         const videogames = (await axios.get(`http://localhost:3001/videogames/database`)).data;
+//         dispatch(
+//             {
+//                 type: GET_VIDEOGAMES_DB_NAMES,
+//                 payload: videogames
+//             }
+//         );
+//     }
+// }

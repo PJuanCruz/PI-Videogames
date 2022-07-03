@@ -5,7 +5,8 @@ import { getGenres, getPlatforms, getVideogameById } from '../../redux/actions';
 import CardDetail from '../components/CardDetail';
 import Loader from '../components/Loader';
 import NavBar from '../components/NavBar';
-import styles, {loader} from './styles/DetailPage.module.css'
+import styles, { loader, icon, text, volver } from './styles/DetailPage.module.css'
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
 const DetailPage = () => {
 
@@ -21,8 +22,8 @@ const DetailPage = () => {
     }, []);
 
     useEffect(() => {
-            dispatch(getGenres());
-            dispatch(getPlatforms());
+        dispatch(getGenres());
+        dispatch(getPlatforms());
     }, []);
 
     const videogame = useSelector(state => state.data.videogameDetail);
@@ -31,6 +32,11 @@ const DetailPage = () => {
         <div>
             <div>
                 <NavBar />
+            </div>
+            <div className={volver}>
+                <Link to='/videogames'>
+                    <MdOutlineKeyboardBackspace className={icon} /><span className={text}>Volver</span>
+                </Link>
             </div>
             <div>
                 {

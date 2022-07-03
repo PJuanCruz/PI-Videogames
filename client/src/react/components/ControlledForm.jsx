@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { validate as validateDescription } from '../../form-validations/description';
 import { validate as validateGenres } from '../../form-validations/genres';
-import {validate as validateName} from '../../form-validations/name';
+import { validate as validateName } from '../../form-validations/name';
 import { validate as validatePlatforms } from '../../form-validations/platforms';
 import { validate as validateRating } from '../../form-validations/rating';
 import { validate as validateReleased } from '../../form-validations/released';
@@ -14,7 +14,8 @@ import NameInput from './Inputs/NameInput';
 import PlatformsInput from './Inputs/PlatformsInput';
 import RatingInput from './Inputs/RatingInput';
 import ReleasedInput from './Inputs/ReleasedInput';
-import styles, { container, form, submit } from './styles/ControlledForm.module.css'
+import styles, { container, form, submit, volver, icon, text } from './styles/ControlledForm.module.css'
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
 const ControlledForm = () => {
 
@@ -38,7 +39,7 @@ const ControlledForm = () => {
                 released: released.value,
                 rating: rating.value,
                 genresId: genres.value,
-                platformsId: platforms.value 
+                platformsId: platforms.value
             };
             dispatch(postVideogame(newVideogame));
             dispatch(setSearch(''))
@@ -53,21 +54,28 @@ const ControlledForm = () => {
             validatePlatforms(platforms, setPlatforms)
         }
     }
-    
+
     return (
-        <div className={container}>
-            <form className={form} onSubmit={e => handleSubmit(e)}>
-                <NameInput state={name} setState={setName} />
-                <DescriptionInput state={description} setState={setDescription} />
-                <ReleasedInput state={released} setState={setReleased} />
-                <RatingInput state={rating} setState={setRating} />
-                <GenresInput state={genres} setState={setGenres} />
-                <PlatformsInput state={platforms} setState={setPlatforms} />
-                <button type="submit" className={submit}>
-                    Submit
-                </button>
-            </form>
-        </div>
+        <>
+            <div className={volver}>
+                <Link to='/videogames'>
+                    <MdOutlineKeyboardBackspace className={icon} /><span className={text}>Volver</span>
+                </Link>
+            </div>
+            <div className={container}>
+                <form className={form} onSubmit={e => handleSubmit(e)}>
+                    <NameInput state={name} setState={setName} />
+                    <DescriptionInput state={description} setState={setDescription} />
+                    <ReleasedInput state={released} setState={setReleased} />
+                    <RatingInput state={rating} setState={setRating} />
+                    <GenresInput state={genres} setState={setGenres} />
+                    <PlatformsInput state={platforms} setState={setPlatforms} />
+                    <button type="submit" className={submit}>
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </>
     );
 }
 

@@ -142,3 +142,25 @@
 .selected:hover {
     color: var(--color-danger);
 }
+
+.icon {
+    left: 1.6rem;
+    font-size: 1.5rem;
+    position: relative;
+    top: 5px;
+    color: var(--color-primary);
+}
+
+.text {
+    margin-left: 2rem;
+    transition: all 300ms ease;
+    color: var(--color-primary);
+}
+
+.volver:hover {
+    font-size: 1.2rem;
+}
+
+.volver {
+    margin-bottom: 2.4rem;
+}
