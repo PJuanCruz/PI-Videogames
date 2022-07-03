@@ -17,7 +17,7 @@ const Order = () => {
         <div className={container}>
             <select className={select} value={currentOrder} onChange={e => handleChange(e)}>
                 <option disabled value={'None'}>Sort by...</option>
-                <option value={'Random'}>Random</option>
+                {/* <option value={'Random'}>Random</option> */}
                 <option value={'AZ'}>AZ</option>
                 <option value={'ZA'}>ZA</option>
                 <option value={'Rating ASC'}>Rating ↑</option>

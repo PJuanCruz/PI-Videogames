@@ -81,6 +81,7 @@ const SearchBar = ({ setLoading }) => {
                     // value={search}
                     type='text'
                     autoComplete="off"
+                    placeholder='Buscar...'
                 // onChange={e => handleChange(e)}
                 />
                 {

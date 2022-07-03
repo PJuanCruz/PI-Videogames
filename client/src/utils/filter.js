@@ -40,9 +40,10 @@ export function sortVideogames(videogames, sort) {
             if (a.rating > b.rating) return -1
             return 0
         })
-    } else if (sort === 'Random') {
-        videogames.sort((a, b) => {
-            return Math.random() - 0.5
-        })
     }
+    // else if (sort === 'Random') {
+    //     videogames.sort((a, b) => {
+    //         return Math.random() - 0.5
+    //     })
+    // }
 }

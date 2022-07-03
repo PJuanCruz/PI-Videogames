@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { postVideogame, putVideogame, setSearch } from '../../redux/actions';
+import { getVideogameById, postVideogame, putVideogame, setSearch } from '../../redux/actions';
 import DescriptionInput from './Inputs/DescriptionInput';
 import GenresInput from './Inputs/GenresInput';
 import NameInput from './Inputs/NameInput';
@@ -22,6 +22,12 @@ const ControlledPutForm = ({ id }) => {
     const dispatch = useDispatch();
 
     const history = useHistory();
+
+    useEffect(() => {
+        if (!Object.keys(videogame).length) {
+            dispatch(getVideogameById(id));
+        }
+    }, []);
 
     const videogame = useSelector(state => state.data.videogameDetail);
 
@@ -62,9 +68,9 @@ const ControlledPutForm = ({ id }) => {
         setDescription({ value: videogame.description, valid: true, message: '' })
         setReleased({ value: videogame.released, valid: true, message: '' })
         setRating({ value: videogame.rating, valid: true, message: '' })
-        setGenres({ value: videogame.genres.map(e => e.id), valid: true, message: '' })
-        setPlatforms({ value: videogame.platforms.map(e => e.id), valid: true, message: '' })
-    }, [])
+        setGenres({ value: videogame.genres?.map(e => e.id), valid: true, message: '' })
+        setPlatforms({ value: videogame.platforms?.map(e => e.id), valid: true, message: '' })
+    }, [videogame])
 
     return (
         <div className={container}>

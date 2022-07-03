@@ -36,7 +36,7 @@ const GenresInput = ({ state, setState }) => {
 
     function handleClick(event) {
         event.preventDefault();
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setState({...state, value: [...state.value.filter(e => e !== parseInt(event.target.value))]})
     }
     
@@ -54,7 +54,7 @@ const GenresInput = ({ state, setState }) => {
             </select>
             <h5 className={state.valid === false ? message_invalid : message_valid}>{state.message || 'message'}</h5>
             {
-                state.value.map(e => (
+                state.value?.map(e => (
                     <button className={selected} key={e} value={e} onClick={e => handleClick(e)}>{genres.find(el => el.id === e).name}</button>
                     ))
                 }

@@ -5,17 +5,10 @@ import {validate} from '../../../form-validations/released';
 
 const ReleasedInput = ({ state, setState }) => {
     function handleChange(event) {
-        let currentValue = event.target.value;
-        if (event.nativeEvent.inputType === 'insertText' && (currentValue.length === 4 || currentValue.length === 7)) {
-            currentValue = currentValue + '-';
-        } else if (event.nativeEvent.inputType === 'insertText' && (currentValue.length === 5 || currentValue.length === 8)) {
-            currentValue = currentValue.substring(0, currentValue.length - 1) + '-' + event.nativeEvent.data;
-        } else if (event.nativeEvent.inputType === 'deleteContentBackward' && (currentValue.length === 5 || currentValue.length === 8)) {
-            currentValue = currentValue.substring(0, currentValue.length - 1);
-        }
+        let value = event.target.value;
 
-        if (/^[0-9]{1,4}$|^[0-9]{4}-$|^[0-9]{4}-[0-9]{1,2}$|^[0-9]{4}-[0-9]{1,2}-$|^[0-9]{4}-[0-9]{2}-[0-9]{1,2}$/.test(currentValue) || currentValue === '') {
-            setState({ ...state, value: currentValue });
+        if (/^[0-9]{1,4}$|^[0-9]{4}-$|^[0-9]{4}-[0-9]{1,2}$|^[0-9]{4}-[0-9]{1,2}-$|^[0-9]{4}-[0-9]{2}-[0-9]{1,2}$/.test(value) || value === '') {
+            setState({ ...state, value: value });
         }
     }
 

@@ -51,7 +51,7 @@ const PlatformsInput = ({ state, setState }) => {
             </select>
             <h5 className={state.valid === false ? message_invalid : message_valid}>{state.message || 'message'}</h5>
             {
-                state.value.map(e => (
+                state.value?.map(e => (
                     <button className={selected} key={e} value={e} onClick={e => handleClick(e)}>{platforms.find(el => el.id === e).name}</button>
                 ))
             }

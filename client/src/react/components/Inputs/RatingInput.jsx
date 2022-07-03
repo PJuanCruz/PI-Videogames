@@ -4,18 +4,12 @@ import { FaCheckCircle } from "react-icons/fa";
 import {validate} from '../../../form-validations/rating';
 
 const RatingInput = ({ state, setState }) => {
-    function handleChange(event) {
-        let currentValue = event.target.value;
-        if (event.nativeEvent.inputType === 'insertText' && (currentValue.length === 1)) {
-            currentValue = currentValue + '.';
-        } else if (event.nativeEvent.inputType === 'insertText' && (currentValue.length === 2)) {
-            currentValue = currentValue[0] + '.' + currentValue[1];
-        } else if (event.nativeEvent.inputType === 'deleteContentBackward' && (currentValue.length === 2)) {
-            currentValue = currentValue[0];
-        }
 
-        if (/^[0-9]$|^[0-9]\.$|^[0-9]\.[0-9]{1,2}$|^[0-9]\.[0-9]{2}$/.test(currentValue) || currentValue === '') {
-            setState({ ...state, value: currentValue });
+    function handleChange(event) {
+        let value = event.target.value;
+
+        if (/^[0-9]$|^[0-9]\.$|^[0-9]\.[0-9]{1,2}$/.test(value) || value === '') {
+            setState({ ...state, value: value });
         }
     }
 
