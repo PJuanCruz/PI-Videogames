@@ -1,4 +1,4 @@
-import { SET_GENRES_FILTER, SET_ORDER, SET_PAGE, SET_SEARCH, SET_STATUS_FILTER } from "../actions";
+import { SET_GENRES_FILTER, SET_ORDER, SET_SEARCH, SET_STATUS_FILTER } from "../actions";
 
 const initialState = {
     genres: 'All',

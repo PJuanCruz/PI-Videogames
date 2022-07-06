@@ -10,7 +10,7 @@ import Loader from '../components/Loader';
 import NavBar from '../components/NavBar.jsx';
 import Order from '../components/Order.jsx';
 import SearchBar from '../components/SearchBar.jsx';
-import styles, { filters_container, loader, cards_container } from './styles/HomePage.module.css';
+import { filters_container, loader, cards_container } from './styles/HomePage.module.css';
 
 const HomePage = () => {
 

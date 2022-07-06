@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {validate} from '../../../form-validations/name';
-import style, { form_group, message_valid, message_invalid, label_valid, input_invalid, input, i, i_valid, label_invalid } from '../styles/ControlledForm.module.css';
+import { form_group, message_valid, message_invalid, label_valid, input_invalid, input, i, i_valid, label_invalid } from '../styles/ControlledForm.module.css';
 import { FaCheckCircle } from "react-icons/fa";
 import { useSelector } from 'react-redux';
 

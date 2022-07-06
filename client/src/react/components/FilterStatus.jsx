@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setStatusFilter } from '../../redux/actions';
-import styles, { container, select, i_close } from './styles/Filter.module.css';
+import { container, select, i_close } from './styles/Filter.module.css';
 import { FaTimes } from "react-icons/fa";
 
 const FilterStatus = () => {

@@ -1,5 +1,5 @@
 import { filterVideogames, sortVideogames } from '../../utils/filter';
-import { DELETE_VIDEOGAME, FILTER_AND_SORT, GET_VIDEOGAMES, GET_VIDEOGAMES_BY_ID, POST_VIDEOGAME, PUT_VIDEOGAME, SET_PAGE } from '../actions';
+import { DELETE_VIDEOGAME, FILTER_AND_SORT, GET_VIDEOGAMES, GET_VIDEOGAMES_BY_ID, POST_VIDEOGAME, PUT_VIDEOGAME, SET_DATA, SET_PAGE } from '../actions';
 
 const initialState = {
     videogames: [],
@@ -62,6 +62,14 @@ function data(state = initialState, action) {
                 videogames: [],
                 showVideogames: [],
                 videogameDetail: {}
+            }
+        case SET_DATA:
+            return {
+                ...state,
+                videogames: [],
+                showVideogames: [],
+                videogameDetail: {},
+                page: 1
             }
         default:
             return {

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getGenres, setGenresFilter } from '../../redux/actions';
-import styles, { container, select, i_close } from './styles/Filter.module.css';
+import { container, select, i_close } from './styles/Filter.module.css';
 import { FaTimes } from "react-icons/fa";
 
 const FilterGenres = () => {
@@ -15,7 +15,7 @@ const FilterGenres = () => {
         if (!genres.length) {
             dispatch(getGenres());
         }
-    }, []);
+    }, [dispatch]);
 
     function handleChange(event) {
         dispatch(setGenresFilter(event.target.value));

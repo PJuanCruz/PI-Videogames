@@ -10,7 +10,7 @@ const videogame = {
     name: 'Super Mario Bros',
 };
 
-describe('Videogame routes', () => {
+xdescribe('Videogame routes', () => {
 
     // before(() => conn.authenticate()
     //     .then(conn.sync({ force: true }))

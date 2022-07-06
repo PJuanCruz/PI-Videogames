@@ -1,6 +1,6 @@
 import React from 'react';
 import imgDefault from '../../img/descarga.png';
-import styles, { image, container, title, description, image_container, data, list, i, genres, button, del, up } from './styles/CardDetail.module.css';
+import { image, container, title, description, image_container, data, list, i, genres, button, del, up } from './styles/CardDetail.module.css';
 import { FaGamepad } from "react-icons/fa";
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -14,10 +14,6 @@ const CardDetail = ({ videogame }) => {
     const history = useHistory();
 
     function handleClick(event) {
-        // dispatch(deleteVideogame(videogame.id));
-        // dispatch(setSearch(''))
-        // alert('Videojuego eliminado exitosamente')
-        // history.push(`/videogames`)
         let confirmDelete = window.confirm(`¿Seguro que desea eliminar ${videogame.name}?`);
         if (confirmDelete) {
             dispatch(deleteVideogame(videogame.id));
@@ -34,7 +30,7 @@ const CardDetail = ({ videogame }) => {
                     <h2 className={title}>{videogame.name}</h2>
                 </div>
                 <div className={image_container}>
-                    <img className={image} src={videogame.img || imgDefault} />
+                    <img className={image} src={videogame.img || imgDefault} alt={`${videogame.name} img`}/>
                     <div className={description}>
                         <p>
                             {

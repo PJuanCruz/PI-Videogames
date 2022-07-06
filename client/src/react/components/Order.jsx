@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setOrder } from '../../redux/actions';
-import styles, { container, select } from './styles/Filter.module.css';
+import { container, select } from './styles/Filter.module.css';
 
 const Order = () => {
 

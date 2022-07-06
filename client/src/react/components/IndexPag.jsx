@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../../redux/actions';
-import styles, { container, active_btn, btn } from './styles/IndexPag.module.css';
+import { container, active_btn, btn } from './styles/IndexPag.module.css';
 
 const IndexPag = ({ totalPages }) => {
 

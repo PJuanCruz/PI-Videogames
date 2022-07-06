@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles, { container, home_icon, links, div, option, icon, title1, title2, home, span } from './styles/NavBar.module.css';
+import { container, home_icon, links, div, option, icon, title1, title2, home, span } from './styles/NavBar.module.css';
 import { FaGamepad } from "react-icons/fa";
-import { MdLogout, MdOutlineAdd, MdOutlineRefresh } from "react-icons/md";
+import { MdLogout, MdOutlineAdd } from "react-icons/md";
 
 const NavBar = () => {
     return (

@@ -14,7 +14,7 @@ import NameInput from './Inputs/NameInput';
 import PlatformsInput from './Inputs/PlatformsInput';
 import RatingInput from './Inputs/RatingInput';
 import ReleasedInput from './Inputs/ReleasedInput';
-import styles, { container, form, submit, volver, icon, text } from './styles/ControlledForm.module.css'
+import { container, form, submit, volver, icon, text } from './styles/ControlledForm.module.css'
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { useSelector } from 'react-redux';
 
@@ -24,10 +24,9 @@ const ControlledForm = () => {
 
     useEffect(() => {
         dispatch(getVideogamesDBNames());
-    }, []);
+    }, [dispatch]);
 
     const names = useSelector(state => state.selects.names);
-    console.log(names)
 
     const history = useHistory();
 

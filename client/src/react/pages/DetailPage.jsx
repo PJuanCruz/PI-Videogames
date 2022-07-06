@@ -5,7 +5,7 @@ import { getGenres, getPlatforms, getVideogameById } from '../../redux/actions';
 import CardDetail from '../components/CardDetail';
 import Loader from '../components/Loader';
 import NavBar from '../components/NavBar';
-import styles, { loader, icon, text, volver } from './styles/DetailPage.module.css'
+import { loader, icon, text, volver } from './styles/DetailPage.module.css'
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
 const DetailPage = () => {
@@ -19,12 +19,12 @@ const DetailPage = () => {
     useEffect(() => {
         setLoading(true)
         dispatch(getVideogameById(id, setLoading));
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         dispatch(getGenres());
         dispatch(getPlatforms());
-    }, []);
+    }, [dispatch]);
 
     const videogame = useSelector(state => state.data.videogameDetail);
 

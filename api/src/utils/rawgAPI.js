@@ -58,12 +58,11 @@ class RawgAPI {
                 return {
                     id: e.id,
                     name: e.name,
-                    // description: e.description_raw,
-                    released: e.released,
-                    rating: e.rating,
-                    platforms: e.platforms?.map(e => { // hay videogames con platforms: null
-                        return { id: e.platform.id, name: e.platform.name };
-                    }),
+                    // released: e.released,
+                    // rating: e.rating,
+                    // platforms: e.platforms?.map(e => {
+                    //     return { id: e.platform.id, name: e.platform.name };
+                    // }),
                     genres: e.genres.map(e => {
                         return { id: e.id, name: e.name };
                     }),
@@ -97,12 +96,11 @@ class RawgAPI {
                 return {
                     id: e.id,
                     name: e.name,
-                    // description: e.description_raw,
-                    released: e.released,
-                    rating: e.rating,
-                    platforms: e.platforms.map(e => {
-                        return { id: e.platform.id, name: e.platform.name };
-                    }),
+                    // released: e.released,
+                    // rating: e.rating,
+                    // platforms: e.platforms.map(e => {
+                    //     return { id: e.platform.id, name: e.platform.name };
+                    // }),
                     genres: e.genres.map(e => {
                         return { id: e.id, name: e.name };
                     }),

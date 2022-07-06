@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getVideogameById, getVideogamesDBNames, postVideogame, putVideogame, setSearch } from '../../redux/actions';
+import { getVideogameById, getVideogamesDBNames, putVideogame, setSearch } from '../../redux/actions';
 import DescriptionInput from './Inputs/DescriptionInput';
 import GenresInput from './Inputs/GenresInput';
 import NameInput from './Inputs/NameInput';
@@ -14,7 +14,7 @@ import { validate as validateName } from '../../form-validations/name';
 import { validate as validatePlatforms } from '../../form-validations/platforms';
 import { validate as validateRating } from '../../form-validations/rating';
 import { validate as validateReleased } from '../../form-validations/released';
-import styles, { container, form, submit, volver, icon, text } from './styles/ControlledForm.module.css'
+import { container, form, submit, volver, icon, text } from './styles/ControlledForm.module.css'
 import { Link, useHistory } from 'react-router-dom';
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
@@ -24,7 +24,7 @@ const ControlledPutForm = ({ id }) => {
 
     useEffect(() => {
         dispatch(getVideogamesDBNames());
-    }, []);
+    }, [dispatch]);
 
     const names = useSelector(state => state.selects.names);
 
@@ -34,7 +34,7 @@ const ControlledPutForm = ({ id }) => {
         if (!Object.keys(videogame).length) {
             dispatch(getVideogameById(id));
         }
-    }, []);
+    }, [dispatch]);
 
     const videogame = useSelector(state => state.data.videogameDetail);
 

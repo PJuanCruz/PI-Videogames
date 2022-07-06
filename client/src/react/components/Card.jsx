@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import imgDefault from '../../img/descarga.png';
-import styles, { card_container, image, title, genre } from './styles/Card.module.css'
+import { card_container, image, title, genre } from './styles/Card.module.css'
 
 const Card = ({ id, name, genres, img }) => {
     return (
@@ -14,7 +14,7 @@ const Card = ({ id, name, genres, img }) => {
                         ))
                     }
                 </div>
-                <img className={image} src={img || imgDefault} />
+                <img className={image} src={img || imgDefault} alt={`${name} img`}/>
                 <div className={title}><p>{name}</p></div>
             </Link>
         </div>

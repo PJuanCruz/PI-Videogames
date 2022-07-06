@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getGenres } from '../../../redux/actions';
-import style, { form_group, input_select, message_valid, message_invalid, label_valid, label_invalid, i, i_valid, selected, i_delete } from '../styles/ControlledForm.module.css';
+import { form_group, input_select, message_valid, message_invalid, label_valid, label_invalid, i, i_valid, selected } from '../styles/ControlledForm.module.css';
 import { FaCheckCircle } from "react-icons/fa";
 import {validate} from '../../../form-validations/genres';
-import { FaTimes } from "react-icons/fa";
 
 const GenresInput = ({ state, setState }) => {
     const dispatch = useDispatch();
@@ -16,7 +15,7 @@ const GenresInput = ({ state, setState }) => {
         if (!genres.length) {
             dispatch(getGenres());
         }
-    }, []);
+    }, [dispatch]);
 
 
     function handleChange(event) {
