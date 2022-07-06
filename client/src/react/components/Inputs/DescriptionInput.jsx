@@ -28,12 +28,12 @@ const DescriptionInput = ({ state, setState }) => {
 
     return (
         <div className={form_group}>
-            <label className={`${state.valid === false && label_invalid} ${state.valid && label_valid}`} htmlFor='description-input'>Description</label>
+            <label className={`${state.valid === false && label_invalid} ${state.valid && label_valid}`} htmlFor='description-input'>Descripción</label>
             <FaCheckCircle className={`${i} ${state.valid && i_valid}`} />
             <textarea
                 className={`${input_textarea} ${state.valid === false && input_textarea_invalid}`}
                 id='description-input'
-                placeholder='Description...'
+                placeholder='Descripción...'
                 value={state.value}
                 onChange={e => handleChange(e)}
                 onBlur={e => validate(state, setState)}

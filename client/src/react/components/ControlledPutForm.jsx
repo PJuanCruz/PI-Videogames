@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getVideogameById, postVideogame, putVideogame, setSearch } from '../../redux/actions';
+import { getVideogameById, getVideogamesDBNames, postVideogame, putVideogame, setSearch } from '../../redux/actions';
 import DescriptionInput from './Inputs/DescriptionInput';
 import GenresInput from './Inputs/GenresInput';
 import NameInput from './Inputs/NameInput';
@@ -21,6 +21,12 @@ import { MdOutlineKeyboardBackspace } from "react-icons/md";
 const ControlledPutForm = ({ id }) => {
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getVideogamesDBNames());
+    }, []);
+
+    const names = useSelector(state => state.selects.names);
 
     const history = useHistory();
 
@@ -55,7 +61,7 @@ const ControlledPutForm = ({ id }) => {
             alert('Videojuego actualizado exitosamente');
             history.push(`/videogames`)
         } else {
-            validateName(name, setName);
+            validateName(name, setName, names, videogame.name);
             validateDescription(description, setDescription)
             validateReleased(released, setReleased)
             validateRating(rating, setRating)
@@ -82,14 +88,14 @@ const ControlledPutForm = ({ id }) => {
             </div>
             <div className={container}>
                 <form className={form} onSubmit={e => handleSubmit(e)}>
-                    <NameInput state={name} setState={setName} />
+                    <NameInput state={name} setState={setName} currentName={videogame.name} />
                     <DescriptionInput state={description} setState={setDescription} />
                     <ReleasedInput state={released} setState={setReleased} />
                     <RatingInput state={rating} setState={setRating} />
                     <GenresInput state={genres} setState={setGenres} />
                     <PlatformsInput state={platforms} setState={setPlatforms} />
                     <button type="submit" className={submit}>
-                        Submit
+                        Actualizar
                     </button>
                 </form>
             </div>

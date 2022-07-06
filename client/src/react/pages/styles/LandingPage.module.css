@@ -38,3 +38,16 @@
     justify-content: center;
     min-height: 5rem;
 }
+
+
+@media (max-width: 1245px) {
+    .title {
+        font-size: 4rem;
+    }
+  }
+
+@media (max-width: 800px) {
+    .title {
+        font-size: 1.5rem;
+    }
+  }

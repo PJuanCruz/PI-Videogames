@@ -167,7 +167,7 @@ router.get('/', async (req, res, next) => {
                 }
             );
 
-            res.json([...videogamesAPI, ...videogamesDB]);
+            res.json([...videogamesDB, ...videogamesAPI]);
         }
     } catch (error) {
         next(error);

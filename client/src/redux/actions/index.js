@@ -13,6 +13,7 @@ export const SET_PAGE = 'SET_PAGE';
 export const POST_VIDEOGAME = 'POST_VIDEOGAME';
 export const PUT_VIDEOGAME = 'PUT_VIDEOGAME';
 export const DELETE_VIDEOGAME = 'DELETE_VIDEOGAME';
+export const GET_VIDEOGAMES_DB_NAMES = 'GET_VIDEOGAMES_DB_NAMES';
 
 export function getVideogames(setLoading, name = '') {
     return async function(dispatch) {
@@ -139,14 +140,14 @@ export function deleteVideogame(id) {
     }
 }
 
-// export function getVideogamesDBNames() {
-//     return async function (dispatch) {
-//         const videogames = (await axios.get(`http://localhost:3001/videogames/database`)).data;
-//         dispatch(
-//             {
-//                 type: GET_VIDEOGAMES_DB_NAMES,
-//                 payload: videogames
-//             }
-//         );
-//     }
-// }
+export function getVideogamesDBNames() {
+    return async function (dispatch) {
+        const videogames = (await axios.get(`http://localhost:3001/videogames/database`)).data;
+        dispatch(
+            {
+                type: GET_VIDEOGAMES_DB_NAMES,
+                payload: videogames
+            }
+        );
+    }
+}

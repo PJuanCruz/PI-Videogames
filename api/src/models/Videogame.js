@@ -12,16 +12,22 @@ module.exports = (sequelize) => {
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         description: {
             type: DataTypes.TEXT,
+            allowNull: false,
         },
         released: {
-            type: DataTypes.DATEONLY
+            type: DataTypes.DATEONLY,
+            allowNull: false,
         },
         rating: {
-            type: DataTypes.DECIMAL(4, 2)
+            type: DataTypes.DECIMAL(4, 2),
+            min: 0,
+            max: 5,
+            allowNull: false,
         }
     });
 };

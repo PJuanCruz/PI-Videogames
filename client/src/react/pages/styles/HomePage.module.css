@@ -17,3 +17,15 @@
     display: grid;
     grid-template-columns: auto auto auto;
 }
+
+@media (max-width: 1245px) {
+    .cards_container {
+        grid-template-columns: auto auto;
+    }
+  }
+
+@media (max-width: 800px) {
+    .cards_container {
+        grid-template-columns: auto;
+    }
+  }

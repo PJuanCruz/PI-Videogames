@@ -42,10 +42,10 @@ const GenresInput = ({ state, setState }) => {
     
     return (
         <div className={form_group}>
-            <label className={`${state.valid === false && label_invalid} ${state.valid && label_valid}`} htmlFor='genres-input'>Genres</label>
+            <label className={`${state.valid === false && label_invalid} ${state.valid && label_valid}`} htmlFor='genres-input'>Género</label>
             <FaCheckCircle className={`${i} ${state.valid && i_valid}`} />
             <select id='genres-input' className={input_select} value='default' onChange={e => handleChange(e)}>
-                <option disabled value='default'>Select genres</option>
+                <option disabled value='default'>Seleccionar géneros</option>
                 {
                     genres.map(e => (
                         <option key={e.id} value={e.id}>{e.name}</option>

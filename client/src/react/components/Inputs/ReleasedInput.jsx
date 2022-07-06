@@ -20,7 +20,7 @@ const ReleasedInput = ({ state, setState }) => {
 
     return (
         <div className={form_group}>
-            <label className={`${state.valid === false && label_invalid} ${state.valid && label_valid}`} htmlFor='released-input'>Released</label>
+            <label className={`${state.valid === false && label_invalid} ${state.valid && label_valid}`} htmlFor='released-input'>Fecha de lanzamiento</label>
             <FaCheckCircle className={`${i} ${state.valid && i_valid}`} />
             <input
                 className={`${input} ${state.valid === false && input_invalid}`}

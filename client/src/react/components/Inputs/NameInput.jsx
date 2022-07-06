@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import {validate} from '../../../form-validations/name';
 import style, { form_group, message_valid, message_invalid, label_valid, input_invalid, input, i, i_valid, label_invalid } from '../styles/ControlledForm.module.css';
 import { FaCheckCircle } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
-const NameInput = ({ state, setState }) => {
+const NameInput = ({ state, setState, currentName }) => {
+
+    const names = useSelector(state => state.selects.names);
 
     function handleChange(event) {
         setState({ ...state, value: event.target.value });
@@ -11,7 +14,7 @@ const NameInput = ({ state, setState }) => {
 
     useEffect(() => {
         if (state.valid === false) {
-            validate(state, setState)
+            validate(state, setState, names, currentName)
         }
     }, [state.value])
 
@@ -27,7 +30,7 @@ const NameInput = ({ state, setState }) => {
                 autoComplete="off"
                 value={state.value}
                 onChange={e => handleChange(e)}
-                onBlur={e => validate(state, setState)}
+                onBlur={e => validate(state, setState, names, currentName)}
             />
             <h5 className={state.valid === false ? message_invalid : message_valid}>{state.message || 'message'}</h5>
         </div>

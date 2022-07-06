@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { validate as validateDescription } from '../../form-validations/description';
@@ -7,7 +7,7 @@ import { validate as validateName } from '../../form-validations/name';
 import { validate as validatePlatforms } from '../../form-validations/platforms';
 import { validate as validateRating } from '../../form-validations/rating';
 import { validate as validateReleased } from '../../form-validations/released';
-import { postVideogame, setSearch } from '../../redux/actions';
+import { getVideogamesDBNames, postVideogame, setSearch } from '../../redux/actions';
 import DescriptionInput from './Inputs/DescriptionInput';
 import GenresInput from './Inputs/GenresInput';
 import NameInput from './Inputs/NameInput';
@@ -16,10 +16,18 @@ import RatingInput from './Inputs/RatingInput';
 import ReleasedInput from './Inputs/ReleasedInput';
 import styles, { container, form, submit, volver, icon, text } from './styles/ControlledForm.module.css'
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
+import { useSelector } from 'react-redux';
 
 const ControlledForm = () => {
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getVideogamesDBNames());
+    }, []);
+
+    const names = useSelector(state => state.selects.names);
+    console.log(names)
 
     const history = useHistory();
 
@@ -46,7 +54,7 @@ const ControlledForm = () => {
             alert('Videojuego creado exitosamente');
             history.push(`/videogames`)
         } else {
-            validateName(name, setName);
+            validateName(name, setName, names);
             validateDescription(description, setDescription)
             validateReleased(released, setReleased)
             validateRating(rating, setRating)
@@ -71,7 +79,7 @@ const ControlledForm = () => {
                     <GenresInput state={genres} setState={setGenres} />
                     <PlatformsInput state={platforms} setState={setPlatforms} />
                     <button type="submit" className={submit}>
-                        Submit
+                        Crear
                     </button>
                 </form>
             </div>

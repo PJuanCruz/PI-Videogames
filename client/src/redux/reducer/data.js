@@ -12,11 +12,18 @@ function data(state = initialState, action) {
     const { type, payload } = action;
     switch (type) {
         case GET_VIDEOGAMES:
-            return {
-                ...state,
-                videogames: payload,
-                showVideogames: payload,
-                page: 1
+            if (!payload.length) {
+                alert('No se econtraron videojuegos con ese título.')
+                return {
+                    ...state
+                }
+            } else {
+                return {
+                    ...state,
+                    videogames: payload,
+                    showVideogames: payload,
+                    page: 1
+                }
             }
         case FILTER_AND_SORT:
             const videogames = filterVideogames([...state.videogames], payload.genres, payload.status)

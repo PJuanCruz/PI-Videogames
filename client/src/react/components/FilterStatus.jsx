@@ -11,7 +11,7 @@ const FilterStatus = () => {
     function handleChange(event) {
         dispatch(setStatusFilter(event.target.value));
     }
-    
+
     const currentStatus = useSelector(state => state.filters.status);
 
     function handleClick(event) {

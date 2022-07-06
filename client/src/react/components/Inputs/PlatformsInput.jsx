@@ -39,10 +39,10 @@ const PlatformsInput = ({ state, setState }) => {
 
     return (
         <div className={form_group}>
-            <label className={`${state.valid === false && label_invalid} ${state.valid && label_valid}`} htmlFor='platforms-input'>Platforms</label>
+            <label className={`${state.valid === false && label_invalid} ${state.valid && label_valid}`} htmlFor='platforms-input'>Plataformas</label>
             <FaCheckCircle className={`${i} ${state.valid && i_valid}`} />
             <select id='platforms-input' className={input_select} value='default' onChange={e => handleChange(e)}>
-                <option disabled value='default'>Select platforms</option>
+                <option disabled value='default'>Seleccionar plataformas</option>
                 {
                     platforms.map(e => (
                         <option key={e.id} value={e.id}>{e.name}</option>
