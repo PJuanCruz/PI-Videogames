@@ -1,5 +1,5 @@
 import { filterVideogames, sortVideogames } from '../../utils/filter';
-import { DELETE_VIDEOGAME, FILTER_AND_SORT, GET_VIDEOGAMES, GET_VIDEOGAMES_BY_ID, POST_VIDEOGAME, PUT_VIDEOGAME, SET_DATA, SET_PAGE } from '../actions';
+import { DELETE_VIDEOGAME, FILTER_AND_SORT, GET_VIDEOGAMES, GET_VIDEOGAMES_BY_ID, POST_VIDEOGAME, PUT_VIDEOGAME, setSearch, SET_DATA, SET_PAGE } from '../actions';
 
 const initialState = {
     videogames: [],
@@ -13,7 +13,7 @@ function data(state = initialState, action) {
     switch (type) {
         case GET_VIDEOGAMES:
             if (!payload.length) {
-                alert('No se econtraron videojuegos con ese título.')
+                alert('No se econtraron videojuegos con ese título.');
                 return {
                     ...state
                 }

@@ -102,8 +102,12 @@
     border-radius: 0.25rem;
     color: white;
     border: 1px solid #ced4da;
-    padding: 0 3px;
+    padding: 3px 3px;
     cursor: pointer;
+}
+
+.del:hover {
+    background-color: #ffa0a6;
 }
 
 .up {
@@ -111,8 +115,12 @@
     border-radius: 0.25rem;
     color: white;
     border: 1px solid #ced4da;
-    padding: 0 3px;
+    padding: 3px 3px;
     cursor: pointer;
+}
+
+.up:hover {
+    background-color: #85c9f4;
 }
 
 @media (max-width: 1245px) {

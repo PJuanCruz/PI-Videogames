@@ -74,7 +74,7 @@ router.get('/database', async (req, res, next) => {
             {
                 attributes: ['name']
             }
-        )).map(e => e.name);
+        )).map(e => e.name.toLowerCase());
 
         res.json(videogames);
     } catch (error) {

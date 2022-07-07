@@ -22,6 +22,8 @@ const Order = () => {
                 <option value={'ZA'}>ZA</option>
                 <option value={'Rating ASC'}>Rating ↑</option>
                 <option value={'Rating DESC'}>Rating ↓</option>
+                <option value={'Released ASC'}>First releases</option>
+                <option value={'Released DESC'}>Latest releases</option>
             </select >
         </div>
     );

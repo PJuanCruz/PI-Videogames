@@ -11,7 +11,7 @@ export function validate(state, setState, names, currentName) {
         setState({ ...state, valid: false, message: 'El campo no puede estar vacío' });
     } else if (state.value.length < 3) {
         setState({ ...state, valid: false, message: 'El título debe tener por lo menos 3 caracteres' });
-    } else if (names.includes(state.value)) {
+    } else if (names.includes(state.value.toLowerCase())) {
         setState({ ...state, valid: false, message: 'Ya existe un videojuego con ese título' });
     } else {
         setState({ ...state, valid: true, message: null });

@@ -40,6 +40,22 @@ export function sortVideogames(videogames, sort) {
             if (a.rating > b.rating) return -1
             return 0
         })
+    } else if (sort === 'Released ASC') {
+        videogames.sort((a, b) => {
+            const A = new Date(a.released + 'T00:00:00');
+            const B = new Date(b.released + 'T00:00:00');
+            if (A > B) return 1
+            if (A < B) return -1
+            return 0
+        })
+    } else if (sort === 'Released DESC') {
+        videogames.sort((a, b) => {
+            const A = new Date(a.released + 'T00:00:00');
+            const B = new Date(b.released + 'T00:00:00');
+            if (A < B) return 1
+            if (A > B) return -1
+            return 0
+        })
     }
     // else if (sort === 'Random') {
     //     videogames.sort((a, b) => {
