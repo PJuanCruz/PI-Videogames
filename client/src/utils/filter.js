@@ -18,14 +18,14 @@ export function filterVideogames(videogames, filterGenre, filterStatus) {
 export function sortVideogames(videogames, sort) {
     if (sort === 'AZ') {
         videogames.sort((a, b) => {
-            if (a.name > b.name) return 1
-            if (a.name < b.name) return -1
+            if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
+            if (a.name.toLowerCase() < b.name.toLowerCase()) return -1
             return 0
         })
     } else if (sort === 'ZA') {
         videogames.sort((a, b) => {
-            if (a.name < b.name) return 1
-            if (a.name > b.name) return -1
+            if (a.name.toLowerCase() < b.name.toLowerCase()) return 1
+            if (a.name.toLowerCase() > b.name.toLowerCase()) return -1
             return 0
         })
     } else if (sort === 'Rating ASC') {
