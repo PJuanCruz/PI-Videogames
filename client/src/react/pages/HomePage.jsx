@@ -10,7 +10,7 @@ import Loader from '../components/Loader';
 import NavBar from '../components/NavBar.jsx';
 import Order from '../components/Order.jsx';
 import SearchBar from '../components/SearchBar.jsx';
-import { filters_container, loader, cards_container } from './styles/HomePage.module.css';
+import { filters_container, loader, cards_container, no_results } from './styles/HomePage.module.css';
 
 const HomePage = () => {
 
@@ -64,18 +64,21 @@ const HomePage = () => {
                     <div className={loader}><Loader /></div> :
                     <div>
                         <IndexPag totalPages={Math.ceil(showVideogames.length / cardsPerPage)} />
-                        <div className={cards_container}>
-                            {currentVideogames.map(e => (
-                                <Card
-                                    key={e.id}
-                                    id={e.id}
-                                    name={e.name}
-                                    genres={e.genres}
-                                    img={e.img}
-                                />
-                            ))
-                            }
-                        </div>
+                        {
+                            !currentVideogames.length ? <div className={no_results}>No se encontraron resultados...</div> :
+                                <div className={cards_container}>
+                                    {currentVideogames.map(e => (
+                                        <Card
+                                            key={e.id}
+                                            id={e.id}
+                                            name={e.name}
+                                            genres={e.genres}
+                                            img={e.img}
+                                        />
+                                    ))
+                                    }
+                                </div>
+                        }
                     </div>
             }
         </div>

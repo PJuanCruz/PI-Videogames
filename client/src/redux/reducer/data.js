@@ -13,9 +13,10 @@ function data(state = initialState, action) {
     switch (type) {
         case GET_VIDEOGAMES:
             if (!payload.length) {
-                alert('No se econtraron videojuegos con ese título.');
+                // alert('No se econtraron videojuegos con ese título.');
                 return {
-                    ...state
+                    ...state,
+                    showVideogames: []
                 }
             } else {
                 return {
